@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "ea077d66-47fa-452b-a883-8c361c87f636",
+		"name": "todo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36131425"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{v1}}/user/profile",
+							"host": [
+								"{{v1}}"
+							],
+							"path": [
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{v1}}/user/delete",
+							"host": [
+								"{{v1}}"
+							],
+							"path": [
+								"user",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{v1}}/user/logout",
+							"host": [
+								"{{v1}}"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "todo",
+			"item": [
+				{
+					"name": "create todo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"task 3\",\n    \"description\": \"need to be completed in 3 day\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{v1}}/todo",
+							"host": [
+								"{{v1}}"
+							],
+							"path": [
+								"todo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all todo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{v1}}/todo?keyword=&completed=",
+							"host": [
+								"{{v1}}"
+							],
+							"path": [
+								"todo"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": ""
+								},
+								{
+									"key": "completed",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mark completed todo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{v1}}/todo/:todoId/mark-completed",
+							"host": [
+								"{{v1}}"
+							],
+							"path": [
+								"todo",
+								":todoId",
+								"mark-completed"
+							],
+							"variable": [
+								{
+									"key": "todoId",
+									"value": "eab960f3-487e-41a7-b77f-4f44a00c7ba3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete todo",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{v1}}/todo/:todoId/",
+							"host": [
+								"{{v1}}"
+							],
+							"path": [
+								"todo",
+								":todoId",
+								""
+							],
+							"variable": [
+								{
+									"key": "todoId",
+									"value": "8b865a75-fc77-47af-a60f-649ab176844d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete all todos",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{v1_todo}}/delete-all",
+							"host": [
+								"{{v1_todo}}"
+							],
+							"path": [
+								"delete-all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Suhail Ahmad\",\n    \"email\": \"suhail@gmail.com\",\n    \"password\": \"suhail123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{v1}}/register",
+					"host": [
+						"{{v1}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let currentToken = pm.environment.get(\"token\");",
+							"",
+							"let newToken = pm.response.json().token;",
+							"",
+							"if (newToken !== currentToken) {",
+							"    pm.environment.set(\"token\", newToken)",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"suhail@gmail.com\",\n    \"password\": \"suhail123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{v1}}/login",
+					"host": [
+						"{{v1}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
